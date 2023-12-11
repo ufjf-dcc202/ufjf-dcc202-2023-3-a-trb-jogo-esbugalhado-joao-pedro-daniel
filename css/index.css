@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Tudo */
+.index-content {
+    height: 100vh;
+    text-align: center;
+    background-image: url(https://wallpaperset.com/w/full/c/f/7/6545.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/* Título da página */
+#index-title {
+    height: 22vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 100px;
+    font-family: 'Indie Flower';
+    color: #354F5B;
+}
+
+
+/* div dos Botões */
+#index-button-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 75vh;
+    justify-content: space-evenly;
+}
+
+/* Cada botão separado */
+.index-button {
+    width: 150px;
+    height: 50px;
+    border-radius: 15%;
+    border: none;
+    font-size: 18px;
+    background-color: grey;
+    transition: all 0.2s ease;
+}
+
+.index-button:hover {
+    width: 165px;
+    height: 55px;
+    border-radius: 15%;
+    border: none;
+    font-size: 20px;
+}
