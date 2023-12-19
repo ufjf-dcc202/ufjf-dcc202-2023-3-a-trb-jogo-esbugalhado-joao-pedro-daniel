@@ -23,7 +23,6 @@
 .sair {
     height: 50px;
     width: 100px;
-    background-color: grey;
     border-radius: 15%;
     border: none;
     font-size: 18px;
@@ -40,7 +39,87 @@
 .game-area{
     height: 100vh;
     width: 70%;
-    background-color: #080808;
+    background-color: #091013;
 }
+
+
+h2 {
+    color: white;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background-color: #354F5B;
+    width: 90px;
+    display: inline-block;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+    width: 90px;
+    height: 80px;
+}
+
+.tabuleiros {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+         "dado1 tab1"
+         "dado2 tab2";
+}
+
+.maquina {
+    grid-area: tab1;
+    padding-top: 10vh;
+}
+
+.jogador {
+    grid-area: tab2;
+    padding-top: 10vh;
+}
+
+.dado {
+    grid-area: dado2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#botao-dado {
+    height: 85px;
+    width: 100px;
+    border-radius: 100%;
+    border: none;
+    font-size: 16px;
+    background-color: #354F5B;
+    transition: all 0.2s ease;
+    color: rgb(225, 219, 219);
+}
+
+#botao-dado:hover {
+    cursor: pointer;
+    height: 90px;
+    width: 105px;
+    font-size: 17px;
+}
+
+#caixa-sorteio {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    text-align: center;
+}
+
+h3 {
+    color: rgb(225, 219, 219);
+}
+
+
 
 
