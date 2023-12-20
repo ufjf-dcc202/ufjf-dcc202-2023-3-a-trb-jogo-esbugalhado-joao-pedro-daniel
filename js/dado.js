@@ -4,5 +4,5 @@ export function randomNumber() {
 };
 
 export function randomNumber2() {
-    return Math.floor(Math.random() * 4 + 1);
+    return Math.floor(Math.random() * 3 + 1);
 };
