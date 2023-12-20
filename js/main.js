@@ -4,6 +4,7 @@ import { randomNumber, randomNumber2 } from "./dado.js";
 // vencedor ou sair
 let vencedor = false;
 let sair = false;
+const fimDeJogo = document.querySelector('#resultadofinal');
 
 function verificaPlayer1() {
     if (
@@ -18,6 +19,7 @@ function verificaPlayer1() {
         (p1Position9.innerHTML.trim() !== '')
     ) {
         vencedor = true;
+        fimDeJogo.innerHTML = `Fim de Jogo`;
     }
     
     console.log('foi a verificação 1');
@@ -36,6 +38,7 @@ function verificaPlayer2() {
         (p2Position9.innerHTML.trim() !== '')
     ) {
         vencedor = true;
+        fimDeJogo.innerHTML = `Fim de Jogo`;
     }
     
     console.log('foi a verificação 2');
@@ -67,46 +70,64 @@ const p2Position9 = document.querySelector('#p2-9');
 // confere se dados iguais em tabuleiros opostos
 function conferencia(){
     if (
-        (p1Position1 === p2Position1) || (p1Position1 === p2Position2) || (p1Position1 === p2Position3) ||
-        (p1Position2 === p2Position1) || (p1Position2 === p2Position2) || (p1Position2 === p2Position3) ||
-        (p1Position3 === p2Position1) || (p1Position3 === p2Position2) || (p1Position3 === p2Position3))
+        (p1Position1.textContent === p2Position1.textContent) || 
+        (p1Position1.textContent === p2Position2.textContent) || 
+        (p1Position1.textContent === p2Position3.textContent) ||
+        (p1Position2.textContent === p2Position1.textContent) || 
+        (p1Position2.textContent === p2Position2.textContent) || 
+        (p1Position2.textContent === p2Position3.textContent) ||
+        (p1Position3.textContent === p2Position1.textContent) || 
+        (p1Position3.textContent === p2Position2.textContent) || 
+        (p1Position3.textContent === p2Position3.textContent))
         {
             if (currentplayer === 1) {
-            p2Position1.innerHTML = 0;
-            p2Position2.innerHTML = 0;
-            p2Position3.innerHTML = 0;
+            p2Position1.innerHTML = '';
+            p2Position2.innerHTML = '';
+            p2Position3.innerHTML = '';
             } else {
-            p1Position1.innerHTML = 0;
-            p1Position2.innerHTML = 0;
-            p1Position3.innerHTML = 0;
+            p1Position1.innerHTML = '';
+            p1Position2.innerHTML = '';
+            p1Position3.innerHTML = '';
             }
     } else if (
-        (p1Position4 === p2Position4) || (p1Position4 === p2Position5) || (p1Position4 === p2Position6) ||
-        (p1Position5 === p2Position4) || (p1Position5 === p2Position5) || (p1Position5 === p2Position6) ||
-        (p1Position6 === p2Position4) || (p1Position6 === p2Position5) || (p1Position6 === p2Position6)) 
+        (p1Position4.textContent === p2Position4.textContent) || 
+        (p1Position4.textContent === p2Position5.textContent) || 
+        (p1Position4.textContent === p2Position6.textContent) ||
+        (p1Position5.textContent === p2Position4.textContent) || 
+        (p1Position5.textContent === p2Position5.textContent) || 
+        (p1Position5.textContent === p2Position6.textContent) ||
+        (p1Position6.textContent === p2Position4.textContent) || 
+        (p1Position6.textContent === p2Position5.textContent) || 
+        (p1Position6.textContent === p2Position6.textContent)) 
         {
             if (currentplayer === 1) {
-            p2Position4.innerHTML = 0;
-            p2Position5.innerHTML = 0;
-            p2Position6.innerHTML = 0;
+            p2Position4.innerHTML = '';
+            p2Position5.innerHTML = '';
+            p2Position6.innerHTML = '';
             } else {
-            p1Position4.innerHTML = 0;
-            p1Position5.innerHTML = 0;
-            p1Position6.innerHTML = 0;
+            p1Position4.innerHTML = '';
+            p1Position5.innerHTML = '';
+            p1Position6.innerHTML = '';
             }
     } else if (
-        (p1Position7 === p2Position7 || p1Position7 === p2Position8 || p1Position7 === p2Position9) ||
-        (p1Position8 === p2Position7 || p1Position8 === p2Position8 || p1Position8 === p2Position9) ||
-        (p1Position9 === p2Position7 || p1Position9 === p2Position8 || p1Position9 === p2Position9))
+        (p1Position7.textContent === p2Position7.textContent) || 
+        (p1Position7.textContent === p2Position8.textContent) || 
+        (p1Position7.textContent === p2Position9.textContent) ||
+        (p1Position8.textContent === p2Position7.textContent) || 
+        (p1Position8.textContent === p2Position8.textContent) || 
+        (p1Position8.textContent === p2Position9.textContent) ||
+        (p1Position9.textContent === p2Position7.textContent) || 
+        (p1Position9.textContent === p2Position8.textContent) || 
+        (p1Position9.textContent === p2Position9.textContent))
         {
             if (currentplayer === 1) {
-            p2Position7.innerHTML = 0;
-            p2Position8.innerHTML = 0;
-            p2Position9.innerHTML = 0;
+            p2Position7.innerHTML = '';
+            p2Position8.innerHTML = '';
+            p2Position9.innerHTML = '';
             } else {
-            p1Position7.innerHTML = 0;
-            p1Position8.innerHTML = 0;
-            p1Position9.innerHTML = 0;
+            p1Position7.innerHTML = '';
+            p1Position8.innerHTML = '';
+            p1Position9.innerHTML = '';
             }
         }
         
@@ -147,8 +168,9 @@ function coluna1() {
             p1Position3.innerHTML = numSorteado;
         }
 
-        verificaPlayer1();
         
+
+        verificaPlayer1();
 
         currentplayer = 2;
         atualizaCurrentPlayer();
@@ -171,8 +193,8 @@ function coluna2() {
             p1Position6.innerHTML = numSorteado;
         }
 
-        verificaPlayer1();
         
+        verificaPlayer1();
 
         currentplayer = 2;
         atualizaCurrentPlayer();
@@ -195,8 +217,8 @@ function coluna3() {
             p1Position9.innerHTML = numSorteado;
         }
 
-        verificaPlayer1();
         
+        verificaPlayer1();
 
         currentplayer = 2;
         atualizaCurrentPlayer();
@@ -330,6 +352,7 @@ function rodadaPlayer2() {
         }
     }
 
+    
     rodadaPlayer1();
 
 }
