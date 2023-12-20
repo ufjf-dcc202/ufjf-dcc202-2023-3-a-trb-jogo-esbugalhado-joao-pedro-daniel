@@ -119,6 +119,7 @@ li {
 
 h3 {
     color: rgb(225, 219, 219);
+    font-size: 25px;
 }
 
 .colunas {
@@ -137,6 +138,11 @@ h3 {
     color: white;
 }
 
+li {
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
 
 
 

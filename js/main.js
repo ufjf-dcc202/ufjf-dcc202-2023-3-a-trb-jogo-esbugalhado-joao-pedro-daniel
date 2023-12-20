@@ -1,7 +1,31 @@
 import { randomNumber, randomNumber2 } from "./dado.js";
+import { multiplicacao } from "./soma.js";
 
+// posições tabuleiro player 1
+const p1Position1 = document.querySelector('#p1-1');
+const p1Position2 = document.querySelector('#p1-2');
+const p1Position3 = document.querySelector('#p1-3');
+const p1Position4 = document.querySelector('#p1-4');
+const p1Position5 = document.querySelector('#p1-5');
+const p1Position6 = document.querySelector('#p1-6');
+const p1Position7 = document.querySelector('#p1-7');
+const p1Position8 = document.querySelector('#p1-8');
+const p1Position9 = document.querySelector('#p1-9');
+const pontosJogador = document.querySelector('#pontosJogador');
 
-// vencedor ou sair
+// posições tabuleiro player 2
+const p2Position1 = document.querySelector('#p2-1');
+const p2Position2 = document.querySelector('#p2-2');
+const p2Position3 = document.querySelector('#p2-3');
+const p2Position4 = document.querySelector('#p2-4');
+const p2Position5 = document.querySelector('#p2-5');
+const p2Position6 = document.querySelector('#p2-6');
+const p2Position7 = document.querySelector('#p2-7');
+const p2Position8 = document.querySelector('#p2-8');
+const p2Position9 = document.querySelector('#p2-9');
+const pontosMaquina = document.querySelector('#pontosMaquina');
+
+// vencedor
 let vencedor = false;
 let sair = false;
 const fimDeJogo = document.querySelector('#resultadofinal');
@@ -17,9 +41,9 @@ function verificaPlayer1() {
         (p1Position7.innerHTML.trim() !== '') &&
         (p1Position8.innerHTML.trim() !== '') &&
         (p1Position9.innerHTML.trim() !== '')
-    ) {
-        vencedor = true;
-        fimDeJogo.innerHTML = `Fim de Jogo`;
+        ) {
+            vencedor = true;
+            fimDeJogo.innerHTML = `Fim de Jogo`;
     }
     
     console.log('foi a verificação 1');
@@ -45,27 +69,6 @@ function verificaPlayer2() {
 }
 
 
-// posições tabuleiro player 1
-const p1Position1 = document.querySelector('#p1-1');
-const p1Position2 = document.querySelector('#p1-2');
-const p1Position3 = document.querySelector('#p1-3');
-const p1Position4 = document.querySelector('#p1-4');
-const p1Position5 = document.querySelector('#p1-5');
-const p1Position6 = document.querySelector('#p1-6');
-const p1Position7 = document.querySelector('#p1-7');
-const p1Position8 = document.querySelector('#p1-8');
-const p1Position9 = document.querySelector('#p1-9');
-
-// posições tabuleiro player 2
-const p2Position1 = document.querySelector('#p2-1');
-const p2Position2 = document.querySelector('#p2-2');
-const p2Position3 = document.querySelector('#p2-3');
-const p2Position4 = document.querySelector('#p2-4');
-const p2Position5 = document.querySelector('#p2-5');
-const p2Position6 = document.querySelector('#p2-6');
-const p2Position7 = document.querySelector('#p2-7');
-const p2Position8 = document.querySelector('#p2-8');
-const p2Position9 = document.querySelector('#p2-9');
 
 // confere se dados iguais em tabuleiros opostos
 function conferencia(){
@@ -168,12 +171,23 @@ function coluna1() {
             p1Position3.innerHTML = numSorteado;
         }
 
-        
-
         verificaPlayer1();
 
         currentplayer = 2;
         atualizaCurrentPlayer();
+
+        console.log(p1Position1);
+        console.log(p1Position2);
+        console.log(p1Position3);
+        console.log(p1Position4);
+        console.log(p1Position5);
+        console.log(p1Position6);
+        console.log(p1Position7);
+        console.log(p1Position8);
+        console.log(p1Position9);
+
+        somaTotal1 = parseInt(somaPlayer1());
+        somaTotal2 = somaPlayer2();
 
         btnCol1.removeEventListener('click', coluna1);
         btnCol2.removeEventListener('click', coluna2);
@@ -199,6 +213,20 @@ function coluna2() {
         currentplayer = 2;
         atualizaCurrentPlayer();
 
+        console.log(p1Position1);
+        console.log(p1Position2);
+        console.log(p1Position3);
+        console.log(p1Position4);
+        console.log(p1Position5);
+        console.log(p1Position6);
+        console.log(p1Position7);
+        console.log(p1Position8);
+        console.log(p1Position9);
+
+
+        somaTotal1 = somaPlayer1();
+        somaTotal2 = somaPlayer2();
+
         btnCol1.removeEventListener('click', coluna1);
         btnCol2.removeEventListener('click', coluna2);
         btnCol3.removeEventListener('click', coluna3);
@@ -223,6 +251,20 @@ function coluna3() {
         currentplayer = 2;
         atualizaCurrentPlayer();
 
+        console.log(p1Position1);
+        console.log(p1Position2);
+        console.log(p1Position3);
+        console.log(p1Position4);
+        console.log(p1Position5);
+        console.log(p1Position6);
+        console.log(p1Position7);
+        console.log(p1Position8);
+        console.log(p1Position9);
+
+
+        somaTotal1 = somaPlayer1();
+        somaTotal2 = somaPlayer2();
+
         btnCol1.removeEventListener('click', coluna1);
         btnCol2.removeEventListener('click', coluna2);
         btnCol3.removeEventListener('click', coluna3);
@@ -232,9 +274,33 @@ function coluna3() {
 }
 
 
+// soma
+
+function somaPlayer1() {
+    let somaDaColuna1 = multiplicacao(parseInt(p1Position1), parseInt(p1Position2), parseInt(p1Position3));
+    let somaDaColuna2 = multiplicacao(parseInt(p1Position4), parseInt(p1Position5), parseInt(p1Position6));
+    let somaDaColuna3 = multiplicacao(parseInt(p1Position7), parseInt(p1Position8), parseInt(p1Position9));
+
+    return (somaDaColuna1 + somaDaColuna2 + somaDaColuna3);
+}
+
+function somaPlayer2() {
+    let somaDaColuna1 = multiplicacao(p2Position1, p2Position2, p2Position3);
+    let somaDaColuna2 = multiplicacao(p2Position4, p2Position5, p2Position6);
+    let somaDaColuna3 = multiplicacao(p2Position7, p2Position8, p2Position9);
+
+    return (somaDaColuna1 + somaDaColuna2 + somaDaColuna3);
+}
+
+let somaTotal1 = somaPlayer1();
+let somaTotal2 = somaPlayer2();
+
+pontosJogador.innerHTML = somaTotal1;
+pontosMaquina.innerHTML = somaTotal2;
 
 
-// rodada
+
+// RODADA
 function rodadaPlayer1() {
 
     function sorteio(){
@@ -288,7 +354,7 @@ function rodadaPlayer2() {
             }
 
             
-    
+            verificaPlayer2();
             currentplayer = 1;
             atualizaCurrentPlayer();
         }
@@ -321,7 +387,7 @@ function rodadaPlayer2() {
             }
 
             
-
+            verificaPlayer2();
             currentplayer = 1;
             atualizaCurrentPlayer();
         }
@@ -346,7 +412,7 @@ function rodadaPlayer2() {
             }
 
             
-
+            verificaPlayer2();
             currentplayer = 1;
             atualizaCurrentPlayer();
         }
